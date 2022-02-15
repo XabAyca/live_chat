@@ -8,23 +8,21 @@
     <%= live_title_tag assigns[:page_title] || "Chat", suffix: " · Phoenix Framework" %>
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Condensed:wght@400;900&display=swap" rel="stylesheet">
   </head>
   <body>
     <header>
       <section class="container">
-        <nav>
-          <ul>
-            <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
-            <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
-              <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>
-            <% end %>
-          </ul>
-        </nav>
-        <a href="https://phoenixframework.org/" class="phx-logo">
-          <img src={Routes.static_path(@conn, "/images/phoenix.png")} alt="Phoenix Framework Logo"/>
-        </a>
+        <%= link to: Routes.page_path(@conn, :index), class: "phx-logo"  do %>
+          <img src='https://st3.depositphotos.com/4265001/14373/v/600/depositphotos_143738501-stock-illustration-cat-logo-illustration.jpg' alt="tchat Logo"/>
+        <% end %>
+        <h1>The Live T'Chat</h1>
       </section>
     </header>
+
     <%= @inner_content %>
+    
   </body>
 </html>
